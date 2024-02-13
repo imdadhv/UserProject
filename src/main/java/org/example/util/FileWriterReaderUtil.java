@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.example.util.FileDirectory.FILE_PATH;
 
-public class FileWriterReader {
+public class FileWriterReaderUtil {
     private static final String path = FILE_PATH;
 
     public static <T> boolean writeObject(T object) {
@@ -21,13 +21,13 @@ public class FileWriterReader {
         }
     }
 
-    public static List<User> readObject() {
-        try (FileInputStream fis = new FileInputStream(path);
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-            return (List<User>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
+public static List<User> readList() {
+    try (FileInputStream fis = new FileInputStream(path);
+         ObjectInputStream ois = new ObjectInputStream(fis)) {
+        return (List<User>) ois.readObject();
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
     }
+    return null;
+}
 }

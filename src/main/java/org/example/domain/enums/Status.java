@@ -1,2 +1,7 @@
-package org.example.domain.enums;public class Status {
+package org.example.domain.enums;
+
+public enum Status {
+    ACTIVE,
+    FROZEN,
+    DEACTIVE
 }

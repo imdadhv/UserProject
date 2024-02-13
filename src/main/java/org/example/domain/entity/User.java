@@ -1,9 +1,11 @@
-package org.example.domain;
+package org.example.domain.entity;
 
+import org.example.domain.enums.Status;
 import org.example.exception.AgeException;
 import org.example.exception.PinException;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import static org.example.util.PatternUtil.checkPin;
 
@@ -15,6 +17,7 @@ public class User implements Serializable {
     private Integer age;
     private String pin;
     private byte[] password; // TODO
+    private Status status = Status.ACTIVE;
 
     public User() {
     }
@@ -113,6 +116,14 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -122,7 +133,8 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", pin='" + pin + '\'' +
-                ", password='" + password + '\'' +
+                ", password=" + Arrays.toString(password) +
+                ", status=" + status +
                 '}';
     }
 }
